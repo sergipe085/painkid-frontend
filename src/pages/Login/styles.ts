@@ -14,3 +14,16 @@ export const Content = styled.main`
 
     margin-top: 12vh;
 `;
+
+export const Form = styled.div`
+    flex-direction: column;
+    margin-top: 20px;
+
+    input {
+        margin-top: 8px;
+    }
+
+    button {
+        margin-top: 18px;
+    }
+`;

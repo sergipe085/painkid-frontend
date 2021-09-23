@@ -6,6 +6,7 @@ import { Container, Content, Form } from "./styles";
 import { CPFInput } from "../../components/CPFInput";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { useAuth } from "../../hooks/Auth";
 
 interface ILoginResponse {
     data: {
@@ -23,18 +24,15 @@ function Login() {
     const [cpf, setCpf] = useState("");
     const [password, setPassword] = useState("");
 
+    const { signIn } = useAuth();
+
     async function handleSubmit() {
         if (cpf === "" || password === "") {
             console.log("invalid");
             return;
         }
 
-        const { data } = await api.post<ILoginResponse>("/auth", {
-            cpf, 
-            password
-        })  
-
-        console.log(data);
+        await signIn({ cpf, password });
     }
 
     return (

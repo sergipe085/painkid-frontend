@@ -22,11 +22,15 @@ interface AuthContextData {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
+    const [name, setName] = useState("");
+
     const [data, setData] = useState<AuthState>((): AuthState => {
         const token = localStorage.getItem("@PainKid:token");
         const user = localStorage.getItem("@PainKid:user");
 
         if (token && user) {
+            setName(JSON.parse(user).name);
+
             return {
                 token,
                 user: JSON.parse(user)
@@ -48,6 +52,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         localStorage.setItem("@PainKid:user", JSON.stringify(user));
 
         setData({ token, user });
+        setName(user.name);
     }, []);
 
     const signOut = useCallback(() => {
@@ -58,7 +63,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={ { name: "serjolas", user: data.user, signIn, signOut } }>
+        <AuthContext.Provider value={ { name, user: data.user, signIn, signOut } }>
             { children }
         </AuthContext.Provider>
     );

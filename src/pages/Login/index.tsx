@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 import { Container, Content, Form } from "./styles";
 
@@ -15,11 +16,16 @@ function Login() {
 
     async function handleSubmit() {
         if (cpf === "" || password === "") {
-            console.log("invalid");
+            toast.error("Preencha todos os campos para fazer o login!")
             return;
         }
 
-        await signIn({ cpf, password });
+        try {
+            await signIn({ cpf, password });
+        }
+        catch(err) {
+            toast.error("Ocorreu um erro ao fazer login, cheque as credenciais.");
+        }
     }
 
     return (

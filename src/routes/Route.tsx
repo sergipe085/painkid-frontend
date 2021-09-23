@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RouteProps as ReactDOMRouteProps, Route as ReactDOMRoute, Redirect } from "react-router-dom";
 
 import { useAuth } from "../hooks/Auth";
@@ -10,6 +10,10 @@ interface RouteProps extends ReactDOMRouteProps {
 
 const Route: React.FC<RouteProps> = ({ isPrivate = false, component: Component, path, ...rest }) => {
     const { user } = useAuth();
+
+    useEffect(() => {
+        console.log(user);
+    }, [])
 
     return (
         <ReactDOMRoute 

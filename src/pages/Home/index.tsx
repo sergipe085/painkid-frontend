@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { Container, Content, Form } from "./styles";
+import { Container } from "./styles";
 
 import { Button } from "../../components/Button";
 import { useAuth } from "../../hooks/Auth";
 
 function Home() {
-    const { signOut, name } = useAuth();
+    const { signOut, name, user } = useAuth();
 
     function handleLogout() {
         signOut();
@@ -17,6 +18,8 @@ function Home() {
             <h1>Ola, { name }.</h1>
 
             <Button onClick={handleLogout}>Logout</Button>
+
+            { user["admin"] && <Link to="/cadastrar">cadastrar</Link> }
         </Container>
     )
 }

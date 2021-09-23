@@ -5,19 +5,32 @@ import { useAuth } from "../hooks/Auth";
 
 interface RouteProps extends ReactDOMRouteProps {
     isPrivate?: boolean;
+    isAdmin?: boolean;
     component: React.ComponentType;
 }
 
-const Route: React.FC<RouteProps> = ({ isPrivate = false, component: Component, path, ...rest }) => {
+const Route: React.FC<RouteProps> = ({ isPrivate = false, isAdmin = false, component: Component, path, ...rest }) => {
     const { user } = useAuth();
-
-    useEffect(() => {
-        console.log(user);
-    }, [])
 
     return (
         <ReactDOMRoute 
             render={({ location }) => {
+
+                try
+                {
+                    if (isAdmin && !user["admin"]) {
+                        return (
+                            <Redirect to={{ 
+                                pathname: isPrivate ? "/" : "/home",
+                                state: { from: location }
+                            }}/>
+                        )
+                    }
+                }
+                catch(err) {
+                    console.log(err);
+                }
+
                 return isPrivate === !!user ? (
                     <Component/>
                 ) : (

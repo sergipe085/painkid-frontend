@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import api from "../../services/api";
 
 import { Container, Content, Form } from "./styles";
 
@@ -7,18 +6,6 @@ import { CPFInput } from "../../components/CPFInput";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { useAuth } from "../../hooks/Auth";
-
-interface ILoginResponse {
-    data: {
-        token: string;
-        user: {
-            name: string;
-            admin: boolean;
-            cpf: string;
-            id: string;
-        }
-    }
-}
 
 function Login() {
     const [cpf, setCpf] = useState("");

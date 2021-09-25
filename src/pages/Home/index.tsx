@@ -5,6 +5,7 @@ import { Container } from "./styles";
 
 import { Button } from "../../components/Button";
 import { useAuth } from "../../hooks/Auth";
+import { Header } from "../../components/Header/Header";
 
 function Home() {
     const { signOut, name, user } = useAuth();
@@ -14,13 +15,15 @@ function Home() {
     }
 
     return (
-        <Container>
-            <h1>Ola, { name }.</h1>
+        <>
+            <Container>
+                <h1>Ola, { name }.</h1>
 
-            <Button onClick={handleLogout}>Logout</Button>
+                <Button onClick={handleLogout}>Logout</Button>
 
-            { user["admin"] && <Link to="/cadastrar">cadastrar</Link> }
-        </Container>
+                { user["admin"] && <Link to="/cadastrar">cadastrar</Link> }
+            </Container>
+        </>
     )
 }
 

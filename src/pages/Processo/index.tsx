@@ -18,8 +18,6 @@ interface IProcesso {
 }
 
 function Processo() {
-    const [processo, setProcesso] = useState<IProcesso>({} as IProcesso);
-
     const [numero, setNumero] = useState("");
     const [reclamante, setReclamante] = useState("");
     const [reclamado, setReclamado] = useState("");

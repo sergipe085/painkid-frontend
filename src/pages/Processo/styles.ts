@@ -5,6 +5,11 @@ export const Container = styled.div`
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    gap: 8px;
+
+    input, div {
+        width: 300px;
+    }
 `;
 
 export const Content = styled.main`

@@ -12,7 +12,7 @@ export default createGlobalStyle`
         color: #fff;
         -webkit-font-smoothing: antialiased;
     }
-    body, input, button {
+    body, input, button, select {
         font-family: 'Poppins', serif;
         font-size: 16px;
         font-weight: normal;

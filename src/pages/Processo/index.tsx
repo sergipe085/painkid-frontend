@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
+import { Select } from "../../components/Select";
 import api from "../../services/api";
 
 import { Container } from "./styles";
@@ -57,11 +58,11 @@ function Processo() {
             <Input onBlur={(event) => setNumero(event.target.value)} placeholder="Numero do processo"/>
             <Input onChange={(event) => setReclamante(event.target.value)} placeholder="Reclamante"/>
             <Input onChange={(event) => setReclamado(event.target.value)} placeholder="Reclamado"/>
-            <select onChange={(event) => setTipo(event.target.value)}>
+            <Select onChange={(event) => setTipo(event.target.value)}>
                 <option value="imovel">Imovel</option>
                 <option value="veiculo">Veiculo</option>
                 <option value="diversos">Diversos</option>
-            </select>
+            </Select>
             <Input onChange={(event) => setValor(Number(event.target.value))} placeholder="Valor"/>
             <Input onChange={(event) => setValorInicial(Number(event.target.value))} placeholder="Valor inicial"/>
             <Input onChange={(event) => setValorIncremento(Number(event.target.value))} placeholder="Valor incremento"/>

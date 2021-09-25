@@ -5,6 +5,7 @@ import Route from "./Route";
 import { Login } from "../pages/Login";
 import { Logup } from "../pages/Logup";
 import { Home } from "../pages/Home";
+import { Processo } from "../pages/Processo";
 
 const Routes: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const Routes: React.FC = () => {
             <Route path="/" exact component={Login}/>
             <Route isPrivate={true} isAdmin={true} path="/cadastrar" component={Logup}/>
             <Route isPrivate={true} path="/home" component={Home}/>
+            <Route isPrivate={true} path="/processo" component={Processo}/>
         </Switch>
     )
 }

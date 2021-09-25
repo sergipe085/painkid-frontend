@@ -7,17 +7,7 @@ import api from "../../services/api";
 
 import { Container } from "./styles";
 
-interface IProcesso {
-    numero: string;
-    reclamante: string;
-    reclamado: string;
-    tipo: "imovel" | "veiculo" | "diversos",
-    valor: number;
-    valor_inicial: number;
-    valor_incremento: number;
-}
-
-function Processo() {
+function CadastrarProcesso() {
     const [numero, setNumero] = useState("");
     const [reclamante, setReclamante] = useState("");
     const [reclamado, setReclamado] = useState("");
@@ -69,4 +59,4 @@ function Processo() {
     )
 }
 
-export { Processo }
+export { CadastrarProcesso }

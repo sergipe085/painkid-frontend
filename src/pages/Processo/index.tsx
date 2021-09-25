@@ -52,7 +52,7 @@ function Processo() {
 
     return (
         <Container>
-            <h1>Ola</h1>
+            <h1>Cadastrar processo</h1>
             <Input onBlur={(event) => setNumero(event.target.value)} placeholder="Numero do processo"/>
             <Input onChange={(event) => setReclamante(event.target.value)} placeholder="Reclamante"/>
             <Input onChange={(event) => setReclamado(event.target.value)} placeholder="Reclamado"/>

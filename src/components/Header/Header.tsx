@@ -12,7 +12,7 @@ function Header({ children, ...props }: HeaderProps) {
         <Container { ...props }>
             { children }
             <Link to="/home">Inicio</Link>
-            <Link to="/consultarProcesso">Consultar processo</Link>
+            <Link to="/pesquisarProcesso">Pesquisar processo</Link>
             {
                 user != null && user["admin"] && (
                     <>

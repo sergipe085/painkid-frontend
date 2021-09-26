@@ -6,7 +6,7 @@ import api from "../../services/api";
 
 import { Container, Content } from "./styles";
 
-interface IProcesso {
+export interface IProcesso {
     lance_atual_id: string;
     numero: string;
     reclamante: string;
@@ -15,9 +15,10 @@ interface IProcesso {
     valor: number;
     valor_inicial: number;
     valor_incremento: number;
+    created_at: Date;
 }
 
-interface ILance {
+export interface ILance {
     valor: number
 }
 

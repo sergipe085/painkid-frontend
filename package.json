@@ -22,7 +22,7 @@
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
-  "homepage": "https://serjolas1.github.io/login",
+  "homepage": "https://serjolas1.github.io/painkid-frontend",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

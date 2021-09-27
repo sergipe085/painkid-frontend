@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/painkid-frontend/static/js/main.1ca9aca2.chunk.js",
-    "main.js.map": "/painkid-frontend/static/js/main.1ca9aca2.chunk.js.map",
+    "main.js": "/painkid-frontend/static/js/main.6004910e.chunk.js",
+    "main.js.map": "/painkid-frontend/static/js/main.6004910e.chunk.js.map",
     "runtime-main.js": "/painkid-frontend/static/js/runtime-main.0cf67b48.js",
     "runtime-main.js.map": "/painkid-frontend/static/js/runtime-main.0cf67b48.js.map",
     "static/css/2.dfa6656c.chunk.css": "/painkid-frontend/static/css/2.dfa6656c.chunk.css",
-    "static/js/2.f6db4b0d.chunk.js": "/painkid-frontend/static/js/2.f6db4b0d.chunk.js",
-    "static/js/2.f6db4b0d.chunk.js.map": "/painkid-frontend/static/js/2.f6db4b0d.chunk.js.map",
+    "static/js/2.6fd48cb3.chunk.js": "/painkid-frontend/static/js/2.6fd48cb3.chunk.js",
+    "static/js/2.6fd48cb3.chunk.js.map": "/painkid-frontend/static/js/2.6fd48cb3.chunk.js.map",
     "index.html": "/painkid-frontend/index.html",
     "static/css/2.dfa6656c.chunk.css.map": "/painkid-frontend/static/css/2.dfa6656c.chunk.css.map",
-    "static/js/2.f6db4b0d.chunk.js.LICENSE.txt": "/painkid-frontend/static/js/2.f6db4b0d.chunk.js.LICENSE.txt"
+    "static/js/2.6fd48cb3.chunk.js.LICENSE.txt": "/painkid-frontend/static/js/2.6fd48cb3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0cf67b48.js",
     "static/css/2.dfa6656c.chunk.css",
-    "static/js/2.f6db4b0d.chunk.js",
-    "static/js/main.1ca9aca2.chunk.js"
+    "static/js/2.6fd48cb3.chunk.js",
+    "static/js/main.6004910e.chunk.js"
   ]
 }

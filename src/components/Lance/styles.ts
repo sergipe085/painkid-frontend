@@ -7,14 +7,15 @@ export const Container = styled.div`
     background-color: #525298;
     font-weight: 500;
     color: #fff;
-    padding: 0 32px;
+    padding: 20px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
     cursor: pointer;
     border: 0;
     transition: filter 200ms, transform 200ms;
-    margin-top: 20px;
+    margin-top: 10px;
+    flex-direction: column;
 
     &:hover {
         filter: brightness(0.8);

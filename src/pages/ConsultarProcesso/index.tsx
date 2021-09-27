@@ -19,7 +19,9 @@ export interface IProcesso {
 }
 
 export interface ILance {
+    id: string;
     valor: number
+    created_at: Date;
 }
 
 function ConsultarProcesso() {

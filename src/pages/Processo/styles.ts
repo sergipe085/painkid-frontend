@@ -24,6 +24,12 @@ export const Pesquisa = styled.div`
     }
 `;
 
+export const Content = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`;
+
 export const LanceAtual = styled.div`
     margin-bottom: 40px;
 `;

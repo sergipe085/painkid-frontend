@@ -1,5 +1,4 @@
 import React, { HtmlHTMLAttributes } from "react";
-import { useHistory } from "react-router";
 
 import { Container } from "./styles";
 
@@ -9,8 +8,6 @@ interface ProcessoSearchedProps extends HtmlHTMLAttributes<HTMLDivElement> {
 }
 
 function Lance({ valor, created_at, ...props }: ProcessoSearchedProps) {
-    const { push } = useHistory();
-
     return (
         <Container { ...props } >
             <div>valor: { valor }</div>

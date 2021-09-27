@@ -7,7 +7,9 @@ import { Lance } from "../../components/Lance";
 import api from "../../services/api";
 import { ILance, IProcesso } from "../ConsultarProcesso";
 
-import { Container, LanceAtual } from "./styles";
+import Loading from "react-loading";
+
+import { Container, LanceAtual, Content } from "./styles";
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -15,6 +17,8 @@ function useQuery() {
 
 function Processo() {
     const query = useQuery();
+
+    const [loading, setLoading] = useState(false);
 
     const [processo, setProcesso] = useState<IProcesso>({} as IProcesso);
     const [lances, setLances] = useState<ILance[]>([] as ILance[]);
@@ -25,18 +29,25 @@ function Processo() {
     async function handleAddLance() {
         try 
         {
-            const response = await api.post("processos/lance", {
+            setLoading(true);
+
+            await api.post("processos/lance", {
                 numero_processo: processo.numero,
                 valor: valor_lance
             })
     
             await getProcesso();
+
+            setLoading(false);
+            toast.success("Lance adicionado com sucesso");
         }
         catch(err) {
             console.log(err.response.data);
             const responseData = err.response.data;
 
             toast.error(`Ocorreu um erro ao criar o lance. ${responseData.message}`)
+
+            setLoading(false);
         }
     }
 
@@ -92,7 +103,7 @@ function Processo() {
             {
                 processo ? (
                     <>
-                        <div>
+                        <Content>
                             <h1>Lances</h1>
                             {
                                 lance_atual.valor ? (
@@ -107,34 +118,29 @@ function Processo() {
                                     <div>Esse processo nao tem lances ainda</div>
                                 )
                             }
-                            {/* <h1>Lances</h1>
-
-                            {
-                                lance_atual.valor &&
-                                <LanceAtual>
-                                    <h2>Lance atual:</h2>
-                                    <Lance valor={lance_atual?.valor} created_at={lance_atual?.created_at}></Lance>
-                                </LanceAtual>
-                            }
-
-                            {
-                                lances.map((lance) => <Lance key={lance.id} valor={lance.valor} created_at={lance.created_at}></Lance>)
-                            } */}
-                        </div>
-                        <div>
+                        </Content>
+                        <Content>
                             <h1>Adicionar Lance</h1>
 
                             <Input onChange={(event) => setValorLance(Number(event.target.value))} placeholder="valor do lance"/>
-                            <Button onClick={handleAddLance}>Adicionar Lance</Button>
-                        </div>
-                        <div>
+                            {
+                                loading ? 
+                                <Loading width={"15%"} type="spin"></Loading>
+                                :
+                                <Button onClick={handleAddLance}>Adicionar Lance</Button>   
+                            }
+                        </Content>
+                        <Content>
                             <h1>Processo</h1>
                             <div>numero: {processo.numero}</div>
                             <div>data de criacao: {formatDate(processo.created_at)}</div>
                             <div>lance atual: { lance_atual?.valor || "nenhum" }</div>
                             <div>reclamante: {processo.reclamante}</div>
                             <div>reclamado: {processo.reclamado}</div>
-                        </div>
+                            <div>valor: {processo.valor}</div>
+                            <div>valor_inicial: {processo.valor_inicial}</div>
+                            <div>valor_incremento: {processo.valor_incremento}</div>
+                        </Content>
                     </>
                 ) : (
                     <h1>Processo nao encontrado</h1>

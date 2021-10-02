@@ -20,8 +20,8 @@ function Lance({ valor, created_at, leiloeiro, condicao, num_meses, data_inicio,
             <div>leiloeiro: { leiloeiro }</div>
             <div>condicao: { condicao }</div>
             <div>numero de meses: { num_meses }</div>
-            <div>data inicio: { new Date(data_inicio).toLocaleDateString("pt-BR") }</div>
-            <div>data final: { new Date(data_final).toLocaleDateString("pt-BR") }</div>
+            <div>data inicio: { data_inicio ? new Date(data_inicio).toLocaleDateString("pt-BR") : "nao tem" }</div>
+            <div>data final: { data_final ? new Date(data_final).toLocaleDateString("pt-BR") : "nao tem" }</div>
             <div>valor da parcela: { valor_da_parcela }</div>
             <div>criado em: { new Date(created_at).toLocaleDateString("pt-BR") }</div>
         </Container>

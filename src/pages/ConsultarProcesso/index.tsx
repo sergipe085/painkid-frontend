@@ -22,6 +22,12 @@ export interface ILance {
     id: string;
     valor: number
     created_at: Date;
+    leiloeiro: string;
+    condicao: string;
+    num_meses: number;
+    data_inicio: Date;
+    data_final: Date;
+    valor_da_parcela: number;
 }
 
 function ConsultarProcesso() {
